@@ -4,14 +4,16 @@ from time import sleep
 
 p.connect(p.GUI)
 p.setGravity(0, 0, -9.8)
+p.setRealTimeSimulation(1)
+
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
 # targid = p.loadURDF("sphere.urdf")
 
 angle = p.addUserDebugParameter("Motor", -0.5, 0.5, 0)
-ballbeam = p.loadURDF("simple_beam.urdf", [0, 0, 0.1], useFixedBase=True)
+ballbeam = p.loadURDF("ball_beam.urdf", [0, 0, 0.1], useFixedBase=True)
 
-# objects = p.loadURDF("soccerball.urdf")
+ball = p.loadURDF("ball.urdf", [0, 0, 0.75])
 
 number_of_joints = p.getNumJoints(ballbeam)
 for joint_number in range(number_of_joints):
@@ -32,17 +34,4 @@ while True:
         ballbeam, 1, p.POSITION_CONTROL, targetPosition=user_angle, force=1000
     )
     p.stepSimulation()
-
-"""
-while True:
-    #user_angle = p.readUserDebugParameter(angle)
-    #for joint_index in hinge_index:
-    print(count)
-    p.setJointMotorControl2(ballbeam, 2,
-                                p.TORQUE_CONTROL,
-                                force=angles[count])
-    p.stepSimulation()
-    count += 1
-    if(count >= len(angles)-1):
-        break
-"""
+    sleep(1.0 / 240.0)
