@@ -10,8 +10,9 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
 angle = p.addUserDebugParameter("Motor", -0.5, 0.5, 0)
 ballbeam = p.loadURDF("simple_beam.urdf", [0, 0, 0.1], useFixedBase=True)
-p.changeDynamics(ballbeam, 1, jointLowerLimit=-0.5, jointUpperLimit=0.5)
+
 # objects = p.loadURDF("soccerball.urdf")
+
 number_of_joints = p.getNumJoints(ballbeam)
 for joint_number in range(number_of_joints):
     info = p.getJointInfo(ballbeam, joint_number)

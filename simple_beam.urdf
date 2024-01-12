@@ -80,6 +80,6 @@
         <child link="center_beam"/>
         <axis xyz="0 1 0"/>
         <origin xyz="0 0 .1"/>
-        <limit effort="100" lower="-0.5" upper="0.5" velocity="100"/>
+        <limit effort="100" lower="-0.5" upper="0.25" velocity="100"/>
     </joint>
 </robot>
