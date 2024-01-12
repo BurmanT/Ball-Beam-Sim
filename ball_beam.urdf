@@ -141,7 +141,7 @@
     </link>
 
     <!-- Right Track Joint w Center Beam-->
-    <joint name="right_track_center_beam" type="static">
+    <joint name="right_track_center_beam" type="fixed">
         <parent link="center_beam"/>
         <child link="right_track"/>
         <axis xyz="0 1 0"/>
@@ -149,7 +149,7 @@
     </joint>
 
      <!-- Left Track Joint w Center Beam-->
-    <joint name="left_track_center_beam" type="static">
+    <joint name="left_track_center_beam" type="fixed">
         <parent link="center_beam"/>
         <child link="left_track"/>
         <axis xyz="0 1 0"/>
@@ -177,7 +177,7 @@
     </link>
 
 
-    <joint name="stopper_to_center_beam" type="static">
+    <joint name="stopper_to_center_beam" type="fixed">
         <parent link="center_beam"/>
         <child link="stopper"/>
         <axis xyz="0 1 0"/>
