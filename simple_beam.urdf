@@ -54,36 +54,13 @@
         <origin xyz="-0.40 0 0.1"/>
     </joint>
 
-     <!-- Left Hinge -->
-    <link name="left_hinge">
-        <visual>
-            <geometry>
-                <box size="0.15 0.02 0.02"/>
-            </geometry>
-            <origin xyz="0 0 0 " rpy="0 0 1.57075"/>
-            <material name="blue"/>
-        </visual>
-        <inertial> 
-            <origin rpy="0 0 1.57075"/>
-            <mass value="0.01"/>
-            <inertia ixx="5E-6" ixy="0" ixz="0" iyy="5E-6" iyz="0" izz="5E-6"/>
-        </inertial> 
-    </link>
-    <joint name="rod_to_left_hinge" type="revolute">
-        <parent link="left_rod"/>
-        <child link="left_hinge"/>
-        <axis xyz="0 1 0"/>
-        <origin xyz="0 0 0.2"/>
-        <limit effort="100" lower="-0.5" upper="0.5" velocity="100"/>
-    </joint>
-
     <!-- Center Beam -->
     <link name="center_beam">
         <visual>
             <geometry>
                 <box size="0.02 0.1 0.75"/>
             </geometry>
-            <origin xyz="0.32 0 -0.1 " rpy="0 1.57075 0"/>
+            <origin xyz="0.32 0 0.1 " rpy="0 1.57075 0"/>
         </visual>
         <collision>
             <geometry>
@@ -98,10 +75,11 @@
 
     </link>
 
-    <joint name="hinge_to_center_beam" type="continuous">
-        <parent link="left_hinge"/>
+    <joint name="rod_to_center_beam" type="continuous">
+        <parent link="left_rod"/>
         <child link="center_beam"/>
         <axis xyz="0 1 0"/>
         <origin xyz="0 0 .1"/>
+        <limit effort="100" lower="-0.5" upper="0.5" velocity="100"/>
     </joint>
 </robot>
